@@ -1,0 +1,160 @@
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+@media screen and (min-width:360px) and (max-width:425px) {
+body {
+	background-color: black;
+	padding: 0 3%;
+	height: 90vh;
+	width: 100vw;
+	box-sizing: border-box;
+	overflow: auto;
+	min-height: 600px;
+}
+.mainContainers {
+	background-color: #1b1b1b;
+	width: 100%;
+	padding: 3%;
+	box-sizing: border-box;
+	border-radius: 10px;
+	margin: 3% 0;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+#diceMainContainer {
+	height: 55%;
+	min-height: 366px;
+}
+#diceContainer {
+	/* background-color: white; */
+	width: 100%;
+	height: 75%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	flex-wrap: wrap;
+}
+.dice {
+	margin: 1.5%;
+	width: 30%;
+	transition: transform 0.3s linear;
+}
+button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+#rollButton {
+	background-color: #ed1f24;
+	border-radius: 5px;
+}
+.button2 {
+	background-color: #e7e7e7;
+	color: black;
+	padding: 5px 0px;
+	font-size: 20px;
+	width: 40%;
+	border-radius: 100%;
+}
+div#controlContainer {
+	padding-top: 3%;
+	display: flex;
+	justify-content: space-evenly;
+}
+#secondaryControlContainer {
+	display: flex;
+	width: 40%;
+	justify-content: space-between;
+}
+#invMainContainer {
+	height: 15%;
+	min-height: 99px
+}
+.mainContainerTitle {
+	margin-bottom: 3%;
+	color: white;
+}
+.inputContainer {
+	display: flex;
+	height: 100%;
+	justify-content: space-between;
+}
+.inventoryInput {
+	width: 33.33%;
+	border-radius: 5px;
+	margin: 0 2%;
+	height: 100%;
+	text-align: center;
+	background-color: #79191b;
+	/*    border: 2px solid black;*/
+	color: white;
+	border: none;
+}
+#statsMainContainer {
+	height: 22%;
+	min-height: 90px;
+}
+#subTitles {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 4%;
+	color: white;
+}
+	#subTitles > p {
+		    height: fit-content;
+	}
+.statsControllers {
+	background-color: #1b1b1b;
+	width: 48%;
+	box-sizing: border-box;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+}
+.statInput {
+	width: 73%;
+	border-radius: 5px 0 0 5px;
+	/* margin: 0 2%; */
+	height: 100%;
+	text-align: center;
+	background-color: #79191b;
+	/* border: 2px solid black; */
+	color: white;
+	border: none;
+	font-size: 18vw;
+}
+.statsButtonsContainer {
+	display: flex;
+	flex-direction: column;
+	width: 27%;
+	justify-content: space-between;
+}
+.statsButtons {
+	margin: 0;
+	padding: 0;
+	height: 50%;
+	font-size: 22px;
+	background-color: #e7e7e7;
+	color: black;
+}
+#sadnessUp, #badnessUp {
+	border-top-right-radius: 5px;
+}
+#sadnessDown, #badnessDown {
+	border-bottom-right-radius: 5px;
+}
+}
