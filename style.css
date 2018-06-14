@@ -100,9 +100,8 @@ div#controlContainer {
 	height: 100%;
 	text-align: center;
 	background-color: #79191b;
-	/*    border: 2px solid black;*/
+	border: 2px solid black;
 	color: white;
-	border: none;
 }
 #statsMainContainer {
 	height: 22%;
