@@ -9,8 +9,8 @@
 @media screen and (min-width:360px) and (max-width:425px) {
 body {
 	background-color: black;
-	padding: 0 3%;
-	height: 90vh;
+	padding: 3vw;
+	height: 100vh;
 	width: 100vw;
 	box-sizing: border-box;
 	overflow: auto;
@@ -19,22 +19,27 @@ body {
 .mainContainers {
 	background-color: #1b1b1b;
 	width: 100%;
-	padding: 3%;
+	padding: 3vw;
 	box-sizing: border-box;
 	border-radius: 10px;
-	margin: 3% 0;
+	/* margin: 3% 0; */
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 }
 #diceMainContainer {
-	height: 55%;
+	height: 55vh;
 	min-height: 366px;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
 }
 #diceContainer {
 	/* background-color: white; */
-	width: 100%;
-	height: 75%;
+	width: 80vw;
+	height: 80vw;
+	/* padding: 0 4vw; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -42,9 +47,13 @@ body {
 	flex-wrap: wrap;
 }
 .dice {
-	margin: 1.5%;
+	margin: 1%;
 	width: 30%;
 	transition: transform 0.3s linear;
+	max-width: 60%;
+	/* min-width: 30%; */
+	/* flex-shrink: 3; */
+	flex-grow: 1;
 }
 button {
 	background-color: #4CAF50; /* Green */
@@ -71,9 +80,14 @@ button {
 	border-radius: 100%;
 }
 div#controlContainer {
-	padding-top: 3%;
+	/* padding: 2% 0; */
 	display: flex;
+	/* height: 20%; */
 	justify-content: space-evenly;
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+	bottom: 0;
 }
 #secondaryControlContainer {
 	display: flex;
@@ -104,7 +118,7 @@ div#controlContainer {
 	color: white;
 }
 #statsMainContainer {
-	height: 22%;
+	/* height: 22%; */
 	min-height: 90px;
 }
 #subTitles {
@@ -156,4 +170,13 @@ div#controlContainer {
 #sadnessDown, #badnessDown {
 	border-bottom-right-radius: 5px;
 }
+}
+
+
+div.mainContainers:last-of-type {
+    margin-top: 3%;
+}
+
+div.mainContainers:first-of-type {
+    margin-bottom: 3%;
 }
