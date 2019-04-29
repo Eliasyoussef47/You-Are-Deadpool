@@ -12,7 +12,7 @@ function rollDice() {
 	if (dices.length > 0) {
 		for (i = 0; dices.length > i; i++) {
 			let res = Math.floor((Math.random() * 6) + 1);
-			dices[i].src = "img/DeadpoolDiceBlack" + res + ".png";
+			dices[i].src = dicesInfo.getByNumber(res).base64Encode;
 			scaleAnimation(dices[i]);
 		}
 	}
@@ -22,7 +22,7 @@ function add_dice() {
 	if (dices.length < 6) {
 		let img = document.createElement("IMG");
 		img.className = "dice";
-		img.src = "img/DeadpoolDiceBlack1.png";
+		img.src = dicesInfo.one.base64Encode;
 		document.getElementById("diceContainer").appendChild(img);
 	}
 }
