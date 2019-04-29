@@ -1,55 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<title>You are Deadpool</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<meta name="theme-color" content="#79191b">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>You are Deadpool</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="apple-touch-icon" href="favicon.ico"/>
+    <meta name="theme-color" content="#79191b">
 </head>
 
 <body>
 <div id="diceMainContainer" class="mainContainers">
-  <div id="diceContainer"> <img class="dice" src="img/DeadpoolDiceBlack1.png" alt="dice"> </div>
-  <div id="controlContainer">
-    <button id="rollButton" onClick="rollDice()">Roll</button>
-    <div id="secondaryControlContainer">
-      <button class="button2" onClick="add_dice()">+</button>
-      <button class="button2" onClick="remove_dice()">-</button>
+    <div id="diceContainer"><img class="dice" src="img/DeadpoolDiceBlack1.png" alt="dice"></div>
+    <div id="controlContainer">
+        <button id="rollButton" onClick="rollDice()">Roll</button>
+        <div id="secondaryControlContainer">
+            <button class="button2" onClick="add_dice()">+</button>
+            <button class="button2" onClick="remove_dice()">-</button>
+        </div>
     </div>
-  </div>
 </div>
 <div id="invMainContainer" class="mainContainers">
-  <p class="mainContainerTitle">Inventory</p>
-  <div class="inputContainer">
-    <input type="text" class="inventoryInput">
-    <input type="text" class="inventoryInput">
-    <input type="text" class="inventoryInput">
-  </div>
+    <p class="mainContainerTitle">Inventory</p>
+    <div class="inputContainer">
+        <input type="text" class="inventoryInput">
+        <input type="text" class="inventoryInput">
+        <input type="text" class="inventoryInput">
+    </div>
 </div>
 <div id="statsMainContainer" class="mainContainers">
-  <p class="mainContainerTitle">Stats</p>
-	<div id="subTitles">
-		<p>Sadness</p>
-	  <p>Badness</p>
-	</div>
-  <div class="inputContainer">
-	  <div class="statsControllers">
-		  <input id="sadnessScore" type="number" class="statInput" value="0" disabled>
-	  <div class="statsButtonsContainer">
-	  	<button id="sadnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'up');">+</button>
-	  	<button id="sadnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'down');">-</button>
-	  </div>
-	  </div>
-    <div class="statsControllers">
-		<input id="badnessScore" type="number" class="statInput" value="0"  disabled>
-	  <div class="statsButtonsContainer">
-	  	<button id="badnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'up');">+</button>
-	  	<button id="badnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'down');">-</button>
-	  </div>
-	  </div>
-  </div>
+    <p class="mainContainerTitle">Stats</p>
+    <div id="subTitles">
+        <p>Sadness</p>
+        <p>Badness</p>
+    </div>
+    <div class="inputContainer">
+        <div class="statsControllers">
+            <input id="sadnessScore" type="number" class="statInput" value="0" disabled>
+            <div class="statsButtonsContainer">
+                <button id="sadnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'up');">+</button>
+                <button id="sadnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'down');">-</button>
+            </div>
+        </div>
+        <div class="statsControllers">
+            <input id="badnessScore" type="number" class="statInput" value="0" disabled>
+            <div class="statsButtonsContainer">
+                <button id="badnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'up');">+</button>
+                <button id="badnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'down');">-</button>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="diceInfo.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
