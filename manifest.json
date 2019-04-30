@@ -1,6 +1,7 @@
 {
   "short_name": "You're Deadpool",
   "name": "You are Deadpool",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -13,7 +14,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "background_color": "#1b1b1b",
   "display": "standalone",
   "orientation": "portrait",
