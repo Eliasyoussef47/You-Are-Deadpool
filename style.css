@@ -161,8 +161,8 @@ div#controlContainer {
 	padding: 0;
 	height: 50%;
 	font-size: 22px;
-	background-color: #e7e7e7;
-	color: black;
+	background-color: rgb(31, 33, 34);
+	color: rgb(232, 230, 227);
 }
 #sadnessUp, #badnessUp {
 	border-top-right-radius: 5px;
