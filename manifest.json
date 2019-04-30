@@ -1,5 +1,5 @@
 {
-  "short_name": "Deadpool",
+  "short_name": "You're Deadpool",
   "name": "You are Deadpool",
   "icons": [
     {
@@ -14,7 +14,8 @@
     }
   ],
   "start_url": "index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#79191b"
+  "theme_color": "#79191b",
+  "background_color ": "#1b1b1b"
 }
