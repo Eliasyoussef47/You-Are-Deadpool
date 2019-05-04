@@ -6,6 +6,7 @@
     <title>You are Deadpool</title>
     <link rel="manifest" href="manifest.json">
     <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="savedData.js"></script>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="apple-touch-icon" href="favicon.ico"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,9 +29,9 @@
 <div id="invMainContainer" class="mainContainers">
     <p class="mainContainerTitle">Inventory</p>
     <div class="inputContainer">
-        <input type="text" class="inventoryInput">
-        <input type="text" class="inventoryInput">
-        <input type="text" class="inventoryInput">
+        <input type="text" class="inventoryInput" onkeyup="saveInventoryData(this)">
+        <input type="text" class="inventoryInput" onkeyup="saveInventoryData(this)">
+        <input type="text" class="inventoryInput" onkeyup="saveInventoryData(this)">
     </div>
 </div>
 <div id="statsMainContainer" class="mainContainers">
@@ -41,14 +42,14 @@
     </div>
     <div class="inputContainer">
         <div class="statsControllers">
-            <input id="sadnessScore" type="number" class="statInput" value="0" disabled>
+            <input id="sadnessScore" type="number" class="statInput" value="0" data-saved-data-stats="sadness" onchange="saveStatData(this)" disabled>
             <div class="statsButtonsContainer">
                 <button id="sadnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'up');">+</button>
                 <button id="sadnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'down');">-</button>
             </div>
         </div>
         <div class="statsControllers">
-            <input id="badnessScore" type="number" class="statInput" value="0" disabled>
+            <input id="badnessScore" type="number" class="statInput" value="0" data-saved-data-stats="badness" onchange="saveStatData(this)" disabled>
             <div class="statsButtonsContainer">
                 <button id="badnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'up');">+</button>
                 <button id="badnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'down');">-</button>
@@ -63,7 +64,7 @@
 
     window.addEventListener('beforeinstallprompt', (e) => {
         // Prevent Chrome 67 and earlier from automatically showing the prompt
-        //e.preventDefault();
+        e.preventDefault();
         // Stash the event so it can be triggered later.
         deferredPrompt = e;
         // Update UI notify the user they can add to home screen

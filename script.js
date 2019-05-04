@@ -1,5 +1,28 @@
 let dices = document.getElementsByClassName("dice");
-let i;
+let save = new savedData();
+fillSavedData();
+
+function fillSavedData() {
+	let inventoryInputs = document.getElementsByClassName("inventoryInput");
+	Array.from(inventoryInputs).forEach((element, index) => {
+		element.value = save.inventory[index];
+	});
+	let statInputs = document.getElementsByClassName("statInput");
+	Array.from(statInputs).forEach((element) => {
+		element.value = save.stats[element.dataset.savedDataStats];
+	});
+}
+
+function saveInventoryData(element) {
+	let inventoryInputs = document.getElementsByClassName("inventoryInput");
+	save.inventory[Array.from(inventoryInputs).indexOf(element)] = element.value;
+	savedData.setData(save);
+}
+
+function saveStatData(element) {
+	save.stats[element.dataset.savedDataStats] = element.value;
+	savedData.setData(save);
+}
 
 function scaleAnimation(element) {
     element.style.transform = "scale(1.3, 1.3)";
@@ -10,7 +33,7 @@ function scaleAnimation(element) {
 
 function rollDice() {
 	if (dices.length > 0) {
-		for (i = 0; dices.length > i; i++) {
+		for (let i = 0; dices.length > i; i++) {
 			let res = Math.floor((Math.random() * 6) + 1);
 			dices[i].src = dicesInfo.getByNumber(res).base64Encode;
 			scaleAnimation(dices[i]);
@@ -39,4 +62,5 @@ function convertNumber(element, operation) {
 	} else if (operation === "down" && element.value > 0) {
 		element.value = Number(element.value) - 1;
 	}
+	element.dispatchEvent(new Event('change', { bubbles: true }))
 }
