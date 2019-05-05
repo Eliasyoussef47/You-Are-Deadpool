@@ -1,3 +1,15 @@
+// I can use this to set the value of an input element and trigger change event programmatically
+// Object.defineProperty(HTMLInputElement.prototype, 'content', {
+//     get() {
+//         return this.value;
+//     },
+//     set(newValue) {
+//         this.value = newValue;
+//         this.dispatchEvent(new Event('change', { bubbles: true }));
+//     },
+//     configurable: true
+// });
+
 let dices = document.getElementsByClassName("dice");
 let save = new savedData();
 fillSavedData();
@@ -62,5 +74,5 @@ function convertNumber(element, operation) {
 	} else if (operation === "down" && element.value > 0) {
 		element.value = Number(element.value) - 1;
 	}
-	element.dispatchEvent(new Event('change', { bubbles: true }))
+	element.dispatchEvent(new Event('change', { bubbles: true }));
 }
