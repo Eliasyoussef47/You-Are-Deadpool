@@ -1,90 +1,113 @@
 // Set a name for the current cache
-let cacheName = 'v1';
+let cacheName = 'v2';
 
 // Default files to always cache
 let cacheFiles = [
-	'./You-Are-Deadpool/index.html',
-	'./You-Are-Deadpool/icons',
-	'./You-Are-Deadpool/img',
-	'./You-Are-Deadpool/diceInfo.js',
-	'./You-Are-Deadpool/favicon.ico',
-	'./You-Are-Deadpool/manifest.json',
-	'./You-Are-Deadpool/savedData.js',
-	'./You-Are-Deadpool/script.js',
-	'./You-Are-Deadpool/serviceWorker.js',
-	'./You-Are-Deadpool/style.css'
+	'index.html',
+	'icons/icon-192.png',
+	'icons/icon-512.png',
+	'diceInfo.js',
+	'favicon.ico',
+	'manifest.json',
+	'savedData.js',
+	'script.js',
+	'serviceWorker.js',
+	'style.css'
 ];
 
 self.addEventListener('install', function(e) {
 	console.log('[ServiceWorker] Installed');
+
 	// e.waitUntil Delays the event until the Promise is resolved
 	e.waitUntil(
+
 		// Open the cache
-		CacheStorage.open(cacheName).then(function(cache) {
+		caches.open(cacheName).then(function(cache) {
+
 			// Add all the default files to the cache
 			console.log('[ServiceWorker] Caching cacheFiles');
 			return cache.addAll(cacheFiles);
+		}).catch((err) => {
+			console.log('[ServiceWorker] Error caching cacheFiles');
+			console.log(err);
 		})
 	); // end e.waitUntil
 });
 
+
 self.addEventListener('activate', function(e) {
 	console.log('[ServiceWorker] Activated');
+
 	e.waitUntil(
+
 		// Get all the cache keys (cacheName)
-		CacheStorage.keys().then(function(cacheNames) {
+		caches.keys().then(function(cacheNames) {
 			return Promise.all(cacheNames.map(function(thisCacheName) {
+
 				// If a cached item is saved under a previous cacheName
 				if (thisCacheName !== cacheName) {
+
 					// Delete that cached file
 					console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
-					return CacheStorage.delete(thisCacheName);
+					return caches.delete(thisCacheName);
 				}
 			}));
 		})
 	); // end e.waitUntil
+
 });
 
 
 self.addEventListener('fetch', function(e) {
 	console.log('[ServiceWorker] Fetch', e.request.url);
+
 	// e.respondWidth Responds to the fetch event
 	e.respondWith(
+
 		// Check in cache for the request being made
-		CacheStorage.match(e.request).then(function(response) {
-			// If the request is in the cache
-			if ( response ) {
-				console.log("[ServiceWorker] Found in Cache", e.request.url, response);
-				// Return the cached version
-				return response;
-			}
-			// If the request is NOT in the cache, fetch and cache
-			let requestClone = e.request.clone();
-			return fetch(requestClone)
-				.then(function(response) {
-					if ( !response ) {
-						console.log("[ServiceWorker] No response from fetch ");
-						return response;
-					}
+		caches.match(e.request)
 
-					let responseClone = response.clone();
 
-					//  Open the cache
-					CacheStorage.open(cacheName).then(function(cache) {
+			.then(function(response) {
 
-						// Put the fetched response in the cache
-						cache.put(e.request, responseClone);
-						console.log('[ServiceWorker] New Data Cached', e.request.url);
+				// If the request is in the cache
+				if ( response ) {
+					console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+					// Return the cached version
+					return response;
+				}
 
-						// Return the response
-						return response;
+				// If the request is NOT in the cache, fetch and cache
 
-					}); // end CacheStorage.open
+				var requestClone = e.request.clone();
+				return fetch(requestClone)
+					.then(function(response) {
 
-				})
-				.catch(function(err) {
-					console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
-				});
-		}) // end CacheStorage.match(e.request)
+						if ( !response ) {
+							console.log("[ServiceWorker] No response from fetch ")
+							return response;
+						}
+
+						var responseClone = response.clone();
+
+						//  Open the cache
+						caches.open(cacheName).then(function(cache) {
+
+							// Put the fetched response in the cache
+							cache.put(e.request, responseClone);
+							console.log('[ServiceWorker] New Data Cached', e.request.url);
+
+							// Return the response
+							return response;
+
+						}); // end caches.open
+
+					})
+					.catch(function(err) {
+						console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
+					});
+
+
+			}) // end caches.match(e.request)
 	); // end e.respondWith
 });
