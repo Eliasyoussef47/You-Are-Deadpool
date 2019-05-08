@@ -1,5 +1,5 @@
 // Set a name for the current cache
-let cacheName = 'v2';
+let cacheName = 'v3';
 
 // Default files to always cache
 let cacheFiles = [
