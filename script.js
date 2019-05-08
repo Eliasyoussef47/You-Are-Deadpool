@@ -10,6 +10,19 @@
 //     configurable: true
 // });
 
+if ('serviceWorker' in navigator) {
+
+	navigator.serviceWorker
+		.register('./serviceWorker.js')
+		.then((registration) => {
+			console.log("Service Worker Registered");
+		})
+		.catch((err) => {
+			console.log("Service Worker Failed to Register", err);
+		})
+
+}
+
 let dices = document.getElementsByClassName("dice");
 let save = new savedData();
 fillSavedData();
