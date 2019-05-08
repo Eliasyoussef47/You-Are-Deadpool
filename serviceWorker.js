@@ -3,16 +3,16 @@ let cacheName = 'v1';
 
 // Default files to always cache
 let cacheFiles = [
-	'./index.html',
-	'./icons',
-	'./img',
-	'./diceInfo.js',
-	'./favicon.ico',
-	'./manifest.json',
-	'./savedData.js',
-	'./script.js',
-	'./serviceWorker.js',
-	'./style.css'
+	'./You-Are-Deadpool/index.html',
+	'./You-Are-Deadpool/icons',
+	'./You-Are-Deadpool/img',
+	'./You-Are-Deadpool/diceInfo.js',
+	'./You-Are-Deadpool/favicon.ico',
+	'./You-Are-Deadpool/manifest.json',
+	'./You-Are-Deadpool/savedData.js',
+	'./You-Are-Deadpool/script.js',
+	'./You-Are-Deadpool/serviceWorker.js',
+	'./You-Are-Deadpool/style.css'
 ];
 
 self.addEventListener('install', function(e) {
