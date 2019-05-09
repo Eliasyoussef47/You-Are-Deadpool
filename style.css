@@ -120,6 +120,7 @@ div#controlContainer {
 #statsMainContainer {
 	/* height: 22%; */
 	min-height: 90px;
+	margin-top: 3%;
 }
 #subTitles {
 	display: flex;
@@ -127,9 +128,9 @@ div#controlContainer {
 	margin-bottom: 4%;
 	color: white;
 }
-	#subTitles > p {
-		    height: fit-content;
-	}
+#subTitles > p {
+		height: fit-content;
+}
 .statsControllers {
 	background-color: #1b1b1b;
 	width: 48%;
@@ -172,10 +173,9 @@ div#controlContainer {
 }
 }
 
-
-div.mainContainers:last-of-type {
-    margin-top: 3%;
-}
+/*div.mainContainers:last-of-type {*/
+/*    margin-top: 3%;*/
+/*}*/
 
 div.mainContainers:first-of-type {
     margin-bottom: 3%;
