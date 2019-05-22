@@ -1,5 +1,5 @@
 // Set a name for the current cache
-let cacheName = 'v9';
+let cacheName = 'v1';
 
 // Default files to always cache
 let cacheFiles = [
@@ -70,13 +70,11 @@ self.addEventListener('fetch', function(e) {
 
 			.then(function(response) {
 
-				if (!navigator.onLine) {
-					// If the request is in the cache
-					if (response) {
-						console.log("[ServiceWorker] Found in Cache", e.request.url, response);
-						// Return the cached version
-						return response;
-					}
+				// If the request is in the cache
+				if (response) {
+					console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+					// Return the cached version
+					return response;
 				}
 
 				// If the request is NOT in the cache, fetch and cache
