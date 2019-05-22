@@ -1,20 +1,21 @@
 {
-  "name": "You are Deadpool",
+  "background_color": "#1b1b1b",
+  "description": "A second screen experience for the interactive comic book You're Deadpool",
+  "display": "standalone",
   "icons": [
     {
       "src": "icons/icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "icons/icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "start_url": "/You-Are-Deadpool",
-  "background_color": "#1b1b1b",
-  "display": "standalone",
+  "name": "You are Deadpool",
+  "start_url": "/You-Are-Deadpool/index.html",
   "orientation": "portrait",
   "theme_color": "#79191b"
 }
