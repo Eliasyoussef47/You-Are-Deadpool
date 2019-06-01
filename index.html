@@ -1,28 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>You are Deadpool</title>
-    <link rel="manifest" href="manifest.json">
+    <link href="manifest.json" rel="manifest">
     <link href="style.css" rel="stylesheet" type="text/css">
-    <script src="diceInfo.js"></script>
-    <script src="savedData.js"></script>
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="apple-touch-icon" href="favicon.ico"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#79191b">
+    <script src="diceInfo.js" type="text/javascript"></script>
+    <script src="savedData.js" type="text/javascript"></script>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="icons/icon-180.png" rel="apple-touch-icon"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="mobile-web-app-capable">
+    <meta content="#79191b" name="theme-color">
 </head>
 
 <body>
 <button class="add-button" style="display: block;">Add to home screen</button>
-<div id="diceMainContainer" class="mainContainers">
+<div class="mainContainers" id="diceMainContainer">
     <div id="diceContainer">
-        <img id="ogDice" class="dice" src="" alt="dice">
-        <script>
-	        document.getElementById("ogDice").src = dicesInfo.one.base64Encode;
-        </script>
+        <img alt="dice" class="dice" id="ogDice" src="">
+        <script>document.getElementById("ogDice").src = dicesInfo.one.base64Encode;</script>
     </div>
     <div id="controlContainer">
         <button id="rollButton" onClick="rollDice()">Roll</button>
@@ -32,15 +30,18 @@
         </div>
     </div>
 </div>
-<div id="invMainContainer" class="mainContainers">
+<div class="mainContainers" id="invMainContainer">
     <p class="mainContainerTitle">Inventory</p>
     <div class="inputContainer">
-        <input type="text" class="inventoryInput" onkeyup="saveInventoryData(this)">
-        <input type="text" class="inventoryInput" onkeyup="saveInventoryData(this)">
-        <input type="text" class="inventoryInput" onkeyup="saveInventoryData(this)">
+        <label for="inventoryInput0" style="display:none;"></label>
+        <input class="inventoryInput" id="inventoryInput0" onkeyup="saveInventoryData(this)" type="text">
+        <label for="inventoryInput1" style="display:none;"></label>
+        <input class="inventoryInput" id="inventoryInput1" onkeyup="saveInventoryData(this)" type="text">
+        <label for="inventoryInput2" style="display:none;"></label>
+        <input class="inventoryInput" id="inventoryInput2" onkeyup="saveInventoryData(this)" type="text">
     </div>
 </div>
-<div id="statsMainContainer" class="mainContainers">
+<div class="mainContainers" id="statsMainContainer">
     <p class="mainContainerTitle">Stats</p>
     <div id="subTitles">
         <p>Sadness</p>
@@ -48,21 +49,23 @@
     </div>
     <div class="inputContainer">
         <div class="statsControllers">
-            <input id="sadnessScore" type="number" class="statInput" value="0" data-saved-data-stats="sadness" onchange="saveStatData(this)" disabled>
+            <label for="sadnessScore" style="display:none;"></label>
+            <input class="statInput" data-saved-data-stats="sadness" disabled id="sadnessScore" onchange="saveStatData(this)" type="number" value="0">
             <div class="statsButtonsContainer">
-                <button id="sadnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'up');">+</button>
-                <button id="sadnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('sadnessScore'), 'down');">-</button>
+                <button class="statsButtons" id="sadnessUp" onClick="convertNumber(document.getElementById('sadnessScore'), 'up');">+</button>
+                <button class="statsButtons" id="sadnessDown" onClick="convertNumber(document.getElementById('sadnessScore'), 'down');">-</button>
             </div>
         </div>
         <div class="statsControllers">
-            <input id="badnessScore" type="number" class="statInput" value="0" data-saved-data-stats="badness" onchange="saveStatData(this)" disabled>
+            <label for="badnessScore" style="display:none;"></label>
+            <input class="statInput" data-saved-data-stats="badness" disabled id="badnessScore" onchange="saveStatData(this)" type="number" value="0">
             <div class="statsButtonsContainer">
-                <button id="badnessUp" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'up');">+</button>
-                <button id="badnessDown" class="statsButtons" onClick="convertNumber(document.getElementById('badnessScore'), 'down');">-</button>
+                <button class="statsButtons" id="badnessUp" onClick="convertNumber(document.getElementById('badnessScore'), 'up');">+</button>
+                <button class="statsButtons" id="badnessDown" onClick="convertNumber(document.getElementById('badnessScore'), 'down');">-</button>
             </div>
         </div>
     </div>
 </div>
-<script src="script.js"></script>
+<script src="script.js" type="text/javascript"></script>
 </body>
 </html>

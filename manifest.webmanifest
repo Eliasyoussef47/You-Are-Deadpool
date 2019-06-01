@@ -15,6 +15,7 @@
     }
   ],
   "name": "You are Deadpool",
+  "short_name": "You are Deadpool",
   "start_url": "/You-Are-Deadpool/index.html",
   "orientation": "portrait",
   "theme_color": "#79191b"
