@@ -16,8 +16,16 @@
 </head>
 
 <body>
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
 <button class="add-button" style="display: block;">Add to home screen</button>
 <div class="mainContainers" id="diceMainContainer">
+    <button class="openbtn" onclick="openNav()">⋮</button>
     <div id="diceContainer">
         <img alt="dice" class="dice" id="ogDice" src="">
         <script>document.getElementById("ogDice").src = dicesInfo.one.base64Encode;</script>
